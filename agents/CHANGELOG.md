@@ -1,5 +1,30 @@
 # @livekit/agents
 
+## 1.9.2
+
+### Patch Changes
+
+- Tag the destination identity in avatar clear-buffer failure logs as PII. - [#2623](https://github.com/livekit/agents-js/pull/2623) ([@chenghao-mou](https://github.com/chenghao-mou))
+  Expose `telemetry.traceTypes.ATTR_DESTINATION_IDENTITY` for the shared log key.
+
+- Prevent rejected avatar clear-buffer RPCs from emitting unhandled rejections or stranding - [#2045](https://github.com/livekit/agents-js/pull/2045) ([@smorimoto](https://github.com/smorimoto))
+  playout waiters.
+
+- chore: remove dormant reconnectEvent infrastructure in inference STT - [#2439](https://github.com/livekit/agents-js/pull/2439) ([@detail-app](https://github.com/apps/detail-app))
+
+- Prevent TTS fallback and stream adapters from counting provider usage twice in metrics events - [#2621](https://github.com/livekit/agents-js/pull/2621) ([@chenghao-mou](https://github.com/chenghao-mou))
+  and traces.
+
+- Add GPT-5.6 models to the OpenAI plugin and inference model registries. - [#2624](https://github.com/livekit/agents-js/pull/2624) ([@rosetta-livekit-bot](https://github.com/apps/rosetta-livekit-bot))
+
+- Stop tagging participant, avatar, and room identifiers in log records as `lk.pii.*`, matching the Python SDK. Content fields (transcripts, tool arguments, chat context) stay tagged. Span attributes are unchanged. - [#2643](https://github.com/livekit/agents-js/pull/2643) ([@davidzhao](https://github.com/davidzhao))
+
+- chore: remove unused CancellablePromise and gracefullyCancel utilities - [#2335](https://github.com/livekit/agents-js/pull/2335) ([@detail-app](https://github.com/apps/detail-app))
+
+- Fix STT recovery when the session has no error listener or its listener throws. Retry node startup API failures within the session budget. Close the session on failures that cannot be retried, and log unexpected STT pipeline failures. - [#2616](https://github.com/livekit/agents-js/pull/2616) ([@chenghao-mou](https://github.com/chenghao-mou))
+
+- Record LLM trace inputs as deltas of the previous committed generation when `record.inputDelta` is enabled. `gen_ai.system_instructions` now holds only the agent's instructions message; other system messages stay in `gen_ai.input.messages`. - [#2646](https://github.com/livekit/agents-js/pull/2646) ([@rosetta-livekit-bot](https://github.com/apps/rosetta-livekit-bot))
+
 ## 1.9.1
 
 ### Patch Changes
